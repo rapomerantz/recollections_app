@@ -1,0 +1,39 @@
+ToDo List: 
+
+Client: 
+[x] Build file structure Inc. components
+[ ] Set up view routers in App.js
+[ ] Set up basic nav
+[ ] Wireframe views
+    [ ] Add new reflection
+        [ ] Topic input
+        [ ] Reflection body input 
+        [ ] Submit button
+        [ ] Submit must carry TIMESTAMP
+
+    [ ] View reflections
+        [ ] List of reflections (most recent on appears first) 
+        [ ] Trash button
+        [ ] Bookmark
+
+[ ] Import the other shit you'll need 
+    [ ] Redux
+    [ ] Logger
+    [ ] Material-UI
+
+[ ] Get information to appear with dummydata on the client (loop through recollections)
+[ ] Allow the user to submit a recollection (not to the DB yet) 
+
+ 
+Server:
+
+[ ] GET Recollections
+[ ] POST Recollections
+[ ] DELETE 
+[ ] PUT to update bookmark status
+[ ] Breakout into router 
+
+Database:
+
+Redux:
+

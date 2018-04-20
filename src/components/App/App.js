@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import Add from '../Add/Add.js'
+import Recollections from '../Recollections/Recollections'
+
 
 class App extends Component {
   render() {
@@ -11,6 +16,25 @@ class App extends Component {
           <h4><i>Reflection Board</i></h4>
         </header>
         <br/>
+
+        {/* Router/Nav Below */}
+          <Router>
+            <div>
+              <nav>
+                <ul>
+                  <li>
+                    <Link to="/">View Recollections</Link>
+                  </li>
+                  <li>
+                    <Link to="/add">Add</Link>
+                  </li>
+                </ul>
+              </nav>
+              <Route path="/add" component={Add}/>
+              <Route exact path="/" component={Recollections}/>
+            </div>
+          </Router>
+
       </div>
     );
   }
