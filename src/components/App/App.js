@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Add from '../Add/Add.js'
-import Recollections from '../Recollections/Recollections'
+import Reflections from '../Reflections/Reflections'
 
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
               <nav>
                 <ul>
                   <li>
-                    <Link to="/">View Recollections</Link>
+                    <Link to="/">View Reflections</Link>
                   </li>
                   <li>
                     <Link to="/add">Add</Link>
@@ -31,7 +31,7 @@ class App extends Component {
                 </ul>
               </nav>
               <Route path="/add" component={Add}/>
-              <Route exact path="/" component={Recollections}/>
+              <Route exact path="/" component={Reflections}/>
             </div>
           </Router>
 

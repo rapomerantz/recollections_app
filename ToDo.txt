@@ -2,19 +2,19 @@ ToDo List:
 
 Client: 
 [x] Build file structure Inc. components
-[ ] Set up view routers in App.js
+[x] Set up view routers in App.js
 [ ] Set up basic nav
-[ ] Wireframe views
-    [ ] Add new reflection
-        [ ] Topic input
-        [ ] Reflection body input 
-        [ ] Submit button
+[x] Wireframe views
+    [x] Add new reflection
+        [x] Topic input
+        [x] Reflection body input 
+        [x] Submit button
         [ ] Submit must carry TIMESTAMP
 
-    [ ] View reflections
-        [ ] List of reflections (most recent on appears first) 
-        [ ] Trash button
-        [ ] Bookmark
+    [x] View reflections
+        [x] List of reflections (most recent on appears first) 
+        [x] Trash button
+        [x] Bookmark
 
 [ ] Import the other shit you'll need 
     [ ] Redux
@@ -27,7 +27,7 @@ Client:
  
 Server:
 
-[ ] GET Recollections
+[x] GET Recollections
 [ ] POST Recollections
 [ ] DELETE 
 [ ] PUT to update bookmark status
