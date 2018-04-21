@@ -31,7 +31,7 @@ Server:
 [ ] POST Recollections
 [ ] DELETE 
 [ ] PUT to update bookmark status
-[ ] Breakout into router 
+[x] Breakout into router 
 
 Database:
 
