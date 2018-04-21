@@ -30,6 +30,19 @@ class Reflections extends Component {
     })
   }
 
+  deleteReflection = (id) => {
+    console.log('reached deleteReflection, id: ', id);
+    axios.delete('/api/reflections/' + id)
+    .then((response) => {
+      console.log('sucessful DELETE /api/reflections');
+      this.getReflections(); 
+    })
+    .catch((error) => {
+      console.log('error in DELETE /api/reflections', error);
+    })
+    
+  }
+
   componentDidMount() {
     this.getReflections();
   }
@@ -38,12 +51,9 @@ class Reflections extends Component {
 
     let reflectionsArray = this.state.reflections.map((reflection) => {
       return <ReflectionsCard key={reflection.id}
-                              reflection={reflection}/>
+                              reflection={reflection}
+                              deleteReflection={this.deleteReflection}/>
     })
-
-    // let menuListItems = this.state.pizzaList.map((pizza) => {
-    //   return (<MenuListItem key={pizza.id} pizza={pizza} handleClick = {this.props.handleClick}/>)
-    // })
 
 
     return (

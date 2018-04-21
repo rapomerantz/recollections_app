@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 //GET REFLECTIONS
 router.get('/', (req,res) => {
     console.log('GET /reflections');
-    let queryText = `SELECT * FROM reflection;`;
+    let queryText = `SELECT * FROM reflection ORDER BY id DESC;`;
     pool.query(queryText)
         .then((result) => {
             // console.log('successful GET /tasks');
@@ -29,6 +29,22 @@ router.post('/', (req,res) => {
         })
         .catch((error) => {
             console.log('error in POST /reflections', error);
+            res.sendStatus(500)
+        })  
+})
+
+//DELETE reflection
+router.delete('/:id', (req,res) => {
+    let id = req.params.id; 
+    console.log('DELETE /reflections', id);
+    let queryText = `DELETE FROM reflection WHERE id = ${id};`;
+    pool.query(queryText)
+        .then((result) => {
+            console.log('successful DELETE /reflections');
+            res.sendStatus(200); 
+        })
+        .catch((error) => {
+            console.log('error in DELETE /reflections', error);
             res.sendStatus(500)
         })  
 })
