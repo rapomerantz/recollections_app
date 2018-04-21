@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-
 import Add from '../Add/Add.js'
 import Reflections from '../Reflections/Reflections'
+
+// import Navbar from '../Nav/CustomNavbar.js'
 
 
 class App extends Component {
@@ -14,10 +15,8 @@ class App extends Component {
           <h1 className="App-title">Oh, the places you've been</h1>
           <h4><i>Reflection Board</i></h4>
         </header>
-        <br/>
 
-        {/* Router/Nav Below */}
-          <Router>
+        <Router>
             <div>
               <nav>
                 <ul>
@@ -29,6 +28,7 @@ class App extends Component {
                   </li>
                 </ul>
               </nav>
+
               <Route path="/add" component={Add}/>
               <Route exact path="/" component={Reflections}/>
             </div>

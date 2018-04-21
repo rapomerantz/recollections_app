@@ -9,31 +9,21 @@ Client:
         [x] Topic input
         [x] Reflection body input 
         [x] Submit button
-        [ ] Submit must carry TIMESTAMP
+        [x] Submit must carry TIMESTAMP
 
     [x] View reflections
         [x] List of reflections (most recent on appears first) 
         [x] Trash button
         [x] Bookmark
 
-[ ] Import the other shit you'll need 
-    [ ] Redux
-    [ ] Logger
-    [ ] Material-UI
-
-[ ] Get information to appear with dummydata on the client (loop through recollections)
-[ ] Allow the user to submit a recollection (not to the DB yet) 
+[x] Get information to appear with dummydata on the client (loop through recollections)
+[x] Allow the user to submit a recollection (not to the DB yet) 
 
  
 Server:
 
 [x] GET Recollections
-[ ] POST Recollections
-[ ] DELETE 
-[ ] PUT to update bookmark status
+[x] POST Recollections
+[x] DELETE 
+[x] PUT to update bookmark status
 [x] Breakout into router 
-
-Database:
-
-Redux:
-

@@ -51,7 +51,7 @@ class Reflections extends Component {
     })
   }
 
-  
+
 
   componentDidMount() {
     this.getReflections();
@@ -69,7 +69,6 @@ class Reflections extends Component {
 
     return (
       <div className="container">
-        <h1>Reflections VIEW</h1>
         
         {reflectionsArray}
 

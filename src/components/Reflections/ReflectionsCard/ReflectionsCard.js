@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Reflections.css'
-import Card, { CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button'; 
+// import Button from 'material-ui/Button'; 
+import { Panel, Button } from 'react-bootstrap';  
 
 class ReflectionsCard extends Component {
 
@@ -24,30 +24,35 @@ class ReflectionsCard extends Component {
     let cardContent; 
     if (this.props.reflection.bookmarked === true) {
       cardContent = (
-        <Card className="recollectionCard">
-          <CardContent className="bookmarkedCard">
-            <h3>{this.props.reflection.topic}</h3>
+        <Panel bsStyle="primary" className="recollectionCard bookmarkedCard">
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body> 
             {/* ToDo: fix this date so it looks pretty */}
             <h4>{this.props.reflection.date}</h4> 
             <p>{this.props.reflection.description}</p>
             <Button className="cardButton" onClick={this.handleDelete}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
-          </CardContent>
-        </Card>
+          </Panel.Body>
+        </Panel>
       )
 
 
-    } else { cardContent = (
-      <Card className="recollectionCard">
-        <CardContent className="">
-          <h3>{this.props.reflection.topic}</h3>
-          {/* ToDo: fix this date so it looks pretty */}
-          <h4>{this.props.reflection.date}</h4> 
-          <p>{this.props.reflection.description}</p>
-          <Button className="cardButton" onClick={this.handleDelete}>Delete Recolletion</Button>
-          <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
-        </CardContent>
-      </Card>
+    } else { 
+      cardContent = (
+        <Panel bsStyle="primary" className="recollectionCard">
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body> 
+            {/* ToDo: fix this date so it looks pretty */}
+            <h4>{this.props.reflection.date}</h4> 
+            <p>{this.props.reflection.description}</p>
+            <Button className="cardButton" onClick={this.handleDelete}>Delete Recolletion</Button>
+            <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
+          </Panel.Body>
+        </Panel>
     )
     }
 
