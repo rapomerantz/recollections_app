@@ -49,6 +49,22 @@ router.delete('/:id', (req,res) => {
         })  
 })
 
+//PUT reflection
+router.put('/:id', (req,res) => {
+    let id = req.params.id; 
+    console.log('PUT /reflections', id);
+    let queryText = `UPDATE reflection SET bookmarked = NOT bookmarked WHERE id = ${id};`;
+    pool.query(queryText)
+        .then((result) => {
+            console.log('successful PUT /reflections,', result);
+            res.sendStatus(200); 
+        })
+        .catch((error) => {
+            console.log('error in PUT /reflections', error);
+            res.sendStatus(500)
+        })  
+})
+
 
 
 module.exports = router;

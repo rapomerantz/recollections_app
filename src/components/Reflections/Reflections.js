@@ -15,12 +15,10 @@ class Reflections extends Component {
   }
 
 
-//Axios GET for reflections from db
+//axios GET for reflections from db
   getReflections = () => {
-    console.log('in GET /api/reflections');
     axios.get('/api/reflections')
     .then((response) => {
-      console.log('GET response: ', response);
       this.setState({
         reflections: response.data
       })
@@ -30,11 +28,10 @@ class Reflections extends Component {
     })
   }
 
+//axios DELETE
   deleteReflection = (id) => {
-    console.log('reached deleteReflection, id: ', id);
     axios.delete('/api/reflections/' + id)
     .then((response) => {
-      console.log('sucessful DELETE /api/reflections');
       this.getReflections(); 
     })
     .catch((error) => {
@@ -42,6 +39,19 @@ class Reflections extends Component {
     })
     
   }
+
+//axios PUT
+  updateBookmark = (id) => {
+    axios.put('/api/reflections/' + id)
+    .then((response) => {
+      this.getReflections(); 
+    })
+    .catch((error) => {
+      console.log('error in PUT /api/reflections', error);
+    })
+  }
+
+  
 
   componentDidMount() {
     this.getReflections();
@@ -52,7 +62,8 @@ class Reflections extends Component {
     let reflectionsArray = this.state.reflections.map((reflection) => {
       return <ReflectionsCard key={reflection.id}
                               reflection={reflection}
-                              deleteReflection={this.deleteReflection}/>
+                              deleteReflection={this.deleteReflection}
+                              updateBookmark={this.updateBookmark}/>
     })
 
 
@@ -61,7 +72,6 @@ class Reflections extends Component {
         <h1>Reflections VIEW</h1>
         
         {reflectionsArray}
-
 
       </div>
     );
