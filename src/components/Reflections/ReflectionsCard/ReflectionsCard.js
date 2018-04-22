@@ -131,29 +131,29 @@ class ReflectionsCard extends Component {
             <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
             <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
-          </Panel.Body>
             {/* Alert triggered on delete */}
             {alertCard} 
 
-        <form onSubmit={this.handlePut}>
-            <FormGroup controlId="formBasicText">
-              {/* topic */}
-                <FormControl
-                    type="text"
-                    onChange={this.handleTopicEdit}
-                    placeholder={this.props.reflection.topic}
-                />
-                {/* description */}
-                <FormControl
-                    type="text"
-                    onChange={this.handleDescriptionEdit}
-                    placeholder={this.props.reflection.description}
-                />
-            </FormGroup>
+            <form onSubmit={this.handlePut}>
+                <FormGroup controlId="formBasicText">
+                  {/* topic */}
+                    <FormControl
+                        type="text"
+                        onChange={this.handleTopicEdit}
+                        placeholder={this.props.reflection.topic}
+                        />
+                    {/* description */}
+                    <FormControl
+                        type="text"
+                        onChange={this.handleDescriptionEdit}
+                        placeholder={this.props.reflection.description}
+                        />
+                </FormGroup>
 
-            <Button type="submit">Submit</Button>
+                <Button type="submit">Submit</Button>
 
-        </form>
+            </form>
+          </Panel.Body>
         </Panel>
     )}
 

@@ -62,7 +62,6 @@ class Reflections extends Component {
     .catch((error) => {
       console.log('error in PUT /api/reflections', error);
     })
-
   }
 
 
