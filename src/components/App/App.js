@@ -15,8 +15,8 @@ class App extends Component {
       <div className="App">
 
         <header className="App-header">
-          <h1 className="App-title">Oh, the places you've been</h1>
-          <h4><i>Reflection Board</i></h4>
+          <h1 className="App-title">Never Forget</h1>
+          <h4><i>There's So Much To Remember</i></h4>
         </header>
         
 
@@ -24,7 +24,7 @@ class App extends Component {
             <div>
 
                 <Navbar default collapseOnSelect>
-                  <Navbar.Collapse>
+                  {/* <Navbar.Collapse> */}
                     <Nav>
                       <NavItem eventKey={1} to="/">
                         <Link to="/">View Reflections</Link>
@@ -33,7 +33,7 @@ class App extends Component {
                         <Link to="/add">Add a New Reflection</Link>
                       </NavItem>
                     </Nav>
-                  </Navbar.Collapse>
+                  {/* </Navbar.Collapse> */}
                 </Navbar>
 
               <Route path="/add" component={Add}/>

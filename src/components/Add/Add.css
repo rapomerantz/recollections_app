@@ -1,7 +1,29 @@
 .addPanel {
     width: 80%; 
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 10%;
     margin-bottom: 25px; 
-    padding: 100px; 
+    padding: 60px; 
+    font-family: 'Oxygen', sans-serif;
+    box-shadow: 1px 1px 1px #aaaaaa;
+
+}
+
+Button{
+    float: right; 
+}
+
+h2 {
+    text-align: center; 
+    margin-top: 0px; 
+    margin-bottom: 25px; 
+
+}
+
+.input {
+    margin-bottom: 25px; 
+}
+
+.addContainer {
+    height: 800px; 
 }

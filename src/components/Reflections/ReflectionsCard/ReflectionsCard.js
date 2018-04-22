@@ -81,12 +81,14 @@ class ReflectionsCard extends Component {
     let alertCard;
     if (this.state.showAlert) {
       alertCard = (
-        <Alert bsStyle="danger" onDismiss={this.handleDismiss} className="recollectionCard">
+        <Alert bsStyle="danger" onDismiss={this.handleDismiss} className="deleteAlert">
           <p>
           <strong>Are you sure you want to delete this entry? </strong>
           </p>
-            <Button bsStyle="danger" onClick={this.handleDelete}>Delete</Button>
+          <ButtonGroup>
+            <Button onClick={this.handleDelete}>Delete</Button>
             <Button onClick={this.handleDismiss}>Nevermind</Button>
+          </ButtonGroup>
           <p>
           </p>
         </Alert>
@@ -103,10 +105,12 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel bsStyle="primary" className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
+            <Panel.Title componentClass="h3">
+              <strong>{this.props.reflection.topic}</strong>
+              <p className="timeStamp">{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p>     
+            </Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
-            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
             <ButtonGroup>
               <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>
@@ -125,10 +129,12 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel bsStyle="warning" className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
+            <Panel.Title componentClass="h3">
+                <strong>{this.props.reflection.topic}</strong>
+                <p className="timeStamp">{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p>     
+            </Panel.Title>          
           </Panel.Heading>
           <Panel.Body> 
-            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
             <ButtonGroup>
               <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>
@@ -138,7 +144,7 @@ class ReflectionsCard extends Component {
             {/* Alert triggered on delete */}
             {alertCard} 
 
-            <form onSubmit={this.handlePut}>
+            <form onSubmit={this.handlePut} className="editForm">
                 <FormGroup controlId="formBasicText">
                   {/* topic */}
                     <FormControl
@@ -166,10 +172,12 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
+            <Panel.Title componentClass="h3">
+                <strong>{this.props.reflection.topic}</strong>
+                <p className="timeStamp">{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p>     
+            </Panel.Title>          
           </Panel.Heading>
           <Panel.Body> 
-            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
             <ButtonGroup>
               <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>

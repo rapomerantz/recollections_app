@@ -7,7 +7,7 @@ import AddForm from './AddForm/AddForm.js'
 class Add extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="addContainer">
 
         <AddForm />
         

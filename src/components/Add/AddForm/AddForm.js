@@ -95,25 +95,27 @@ class AddForm extends Component {
     return (
         <div>
       <Panel className="addPanel">
-
-      {alertCard}
+            <h2><i>Add a New Reflection</i></h2>
 
         <form onSubmit={this.postReflection}>
-            <FormGroup controlId="formBasicText">
+            <FormGroup bsSize="large" controlId="formBasicText">
                 <FormControl
+                    className="input"
                     type="text"
                     value={this.state.topic}
                     onChange={this.handleTopicChange}
                     placeholder="Topic?"
-                />
+                    />
                 <FormControl
+                    className="input"
                     type="text"
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                     placeholder="What did you learn?"
-                />
+                    />
             </FormGroup>
 
+        {alertCard}
             <Button type="submit">Submit</Button>
 
         </form>

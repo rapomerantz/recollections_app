@@ -10,6 +10,7 @@
 
 .App {
   background-color: whitesmoke;
+  height: 100%; 
 }
 
 .App-title {
