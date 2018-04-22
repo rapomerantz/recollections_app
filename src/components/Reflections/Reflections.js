@@ -4,6 +4,7 @@ import './Reflections.css'
 // import Card, { CardContent } from 'material-ui/Card';
 // import Button from 'material-ui/Button'; 
 import ReflectionsCard from './ReflectionsCard/ReflectionsCard'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 class Reflections extends Component {
   constructor(props) {
@@ -72,20 +73,26 @@ class Reflections extends Component {
   render() {
 
     let reflectionsArray = this.state.reflections.map((reflection) => {
-      return <ReflectionsCard key={reflection.id}
-                              reflection={reflection}
-                              deleteReflection={this.deleteReflection}
-                              updateBookmark={this.updateBookmark}
-                              updateReflection={this.updateReflection}/>
+      return(<Col xs={8} md={6}>
+              <ReflectionsCard key={reflection.id}
+                                      reflection={reflection}
+                                      deleteReflection={this.deleteReflection}
+                                      updateBookmark={this.updateBookmark}
+                                      updateReflection={this.updateReflection}/>
+            </Col>
+            )
     })
 
 
     return (
-      <div className="container">
-        
-        {reflectionsArray}
 
-      </div>
+      <Grid className="container">
+        <Row>
+          
+          {reflectionsArray}
+          
+        </Row>
+      </Grid>
     );
   }
 }

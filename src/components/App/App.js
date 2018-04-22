@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Add from '../Add/Add.js'
 import Reflections from '../Reflections/Reflections'
-import { Jumbotron, Grid, Row, Col, Image, Button, Navbar, NavItem, NavDropdown, Nav, MenuItem } from 'react-bootstrap'
+import { Button, Navbar, NavItem, Nav } from 'react-bootstrap'
 
 
 // import Navbar from '../Nav/CustomNavbar.js'
@@ -27,10 +27,10 @@ class App extends Component {
                   <Navbar.Collapse>
                     <Nav>
                       <NavItem eventKey={1} to="/">
-                        <Button><Link to="/">View Reflections</Link></Button>
+                        <Link to="/">View Reflections</Link>
                       </NavItem>
                       <NavItem eventKey={2} to="/add">
-                        <Button><Link to="/add">Add</Link></Button>
+                        <Link to="/add">Add a New Reflection</Link>
                       </NavItem>
                     </Nav>
                   </Navbar.Collapse>

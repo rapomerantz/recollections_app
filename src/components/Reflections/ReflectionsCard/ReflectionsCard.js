@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Reflections.css'
 // import Button from 'material-ui/Button'; 
-import { Panel, Button, Modal, Alert, FormGroup, FormControl } from 'react-bootstrap';  
+import { Panel, Button, Alert, FormGroup, FormControl, Glyphicon, ButtonGroup } from 'react-bootstrap';  
 import moment from 'moment'
 
 class ReflectionsCard extends Component {
@@ -103,14 +103,16 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel bsStyle="primary" className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
             <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
-            <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
-            <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
-            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
+            <ButtonGroup>
+              <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>
+              <Button className="cardButton" onClick={this.handleBookmark}><Glyphicon glyph="bookmark" /></Button>
+              <Button className="cardButton" onClick={this.toggleEdit}><Glyphicon glyph="pencil" /></Button>
+            </ButtonGroup>
           </Panel.Body>
             {/* Alert triggered on delete */}
             {alertCard}
@@ -123,14 +125,16 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel bsStyle="warning" className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
             <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
-            <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
-            <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
-            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
+            <ButtonGroup>
+              <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>
+              <Button className="cardButton" onClick={this.handleBookmark}><Glyphicon glyph="bookmark" /></Button>
+              <Button className="cardButton" onClick={this.toggleEdit}><Glyphicon glyph="pencil" /></Button>
+            </ButtonGroup>
             {/* Alert triggered on delete */}
             {alertCard} 
 
@@ -162,14 +166,16 @@ class ReflectionsCard extends Component {
       cardContent = (
         <Panel className="recollectionCard">
           <Panel.Heading>
-            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+            <Panel.Title componentClass="h3"><strong>{this.props.reflection.topic}</strong></Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
             <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
-            <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
-            <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
-            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
+            <ButtonGroup>
+              <Button className="cardButton" onClick={this.handleShow}><Glyphicon glyph="trash" /></Button>
+              <Button className="cardButton" onClick={this.handleBookmark}><Glyphicon glyph="bookmark" /></Button>
+              <Button className="cardButton" onClick={this.toggleEdit}><Glyphicon glyph="pencil" /></Button>
+            </ButtonGroup>
 
           </Panel.Body>
             {/* Alert triggered on delete */}

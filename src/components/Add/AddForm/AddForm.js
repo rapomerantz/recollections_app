@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { FormGroup, ControlLabel, FormControl, Button, Panel, Alert } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Panel, Alert } from 'react-bootstrap';
 import '../Add.css'
 
 

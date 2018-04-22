@@ -1,10 +1,21 @@
 .recollectionCard {
-    width: 80%; 
-    margin-left: 10%;
-    margin-right: 5%;
-    margin-bottom: 25px; 
+    padding: 3px 3px 10px 3px;
+    background-color: white;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    font-family: 'Oxygen', sans-serif;
+
 }
 
 .bookmarkedCard {
     border: 3px solid salmon; 
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
