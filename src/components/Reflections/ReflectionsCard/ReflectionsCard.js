@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 import '../Reflections.css'
 // import Button from 'material-ui/Button'; 
-import { Panel, Button } from 'react-bootstrap';  
+import { Panel, Button, Modal } from 'react-bootstrap';  
+import moment from 'moment'
 
 class ReflectionsCard extends Component {
+  constructor(props) {
+    super(props) 
+
+    this.state = {
+      showModal: false
+    }
+  }
+
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  }
+
+  handleShowModal = () => {
+    console.log('clicked show modal');
+    this.setState({
+      showModal: true
+    })
+    console.log(this.state.showModal);
+    
+  }
 
 
   handleDelete= () => {
@@ -15,8 +37,17 @@ class ReflectionsCard extends Component {
     this.props.updateBookmark(this.props.reflection.id);   
   }
 
-
   render() {
+
+
+    <Modal show={this.state.showModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Here's the body baby
+          </Modal.Body>
+    </Modal>
 
 
 // I can probably think of a better way to toggle bookmarked class  
@@ -24,13 +55,13 @@ class ReflectionsCard extends Component {
     let cardContent; 
     if (this.props.reflection.bookmarked === true) {
       cardContent = (
-        <Panel bsStyle="primary" className="recollectionCard bookmarkedCard">
+        <Panel bsStyle="primary" className="recollectionCard">
           <Panel.Heading>
             <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
             {/* ToDo: fix this date so it looks pretty */}
-            <h4>{this.props.reflection.date}</h4> 
+            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
             <Button className="cardButton" onClick={this.handleDelete}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
@@ -41,15 +72,15 @@ class ReflectionsCard extends Component {
 
     } else { 
       cardContent = (
-        <Panel bsStyle="primary" className="recollectionCard">
+        <Panel className="recollectionCard">
           <Panel.Heading>
             <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
           </Panel.Heading>
           <Panel.Body> 
             {/* ToDo: fix this date so it looks pretty */}
-            <h4>{this.props.reflection.date}</h4> 
+            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
             <p>{this.props.reflection.description}</p>
-            <Button className="cardButton" onClick={this.handleDelete}>Delete Recolletion</Button>
+            <Button className="cardButton" onClick={this.handleShowModal}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
           </Panel.Body>
         </Panel>

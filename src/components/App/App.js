@@ -28,7 +28,6 @@ class App extends Component {
                   </li>
                 </ul>
               </nav>
-
               <Route path="/add" component={Add}/>
               <Route exact path="/" component={Reflections}/>
             </div>
