@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button, Panel, Alert } from 'react-bootstrap';
+import '../Add.css'
 
 
 
@@ -11,7 +12,10 @@ class AddForm extends Component {
 
         this.state = {
             topic: '',
-            description: ''
+            description: '',
+            open: false,
+            showAlert: false,
+            showSuccess: false,
 
         }
     }
@@ -34,22 +38,66 @@ class AddForm extends Component {
 
 //axios POST to /api/reflections
     postReflection = (event) => {
-        event.preventDefault(); //stop refresh
-        console.log('in POST /api/reflections');
-        axios.post('/api/reflections', this.state)
-        .then((response) => {
-            console.log('successful POST /api/reflections');
-        })
-        .catch((error) => {
-            console.log('error in POST /api/reflections');
-        })
+        event.preventDefault(); 
+        //if no infor added, showAlert warning
+        if (this.state.topic.length < 1 || this.state.description.length < 1) {
+            this.handleShow(); 
+
+        } else {
+            console.log('in POST /api/reflections');
+            axios.post('/api/reflections', this.state)
+            .then((response) => {
+                console.log('successful POST /api/reflections');
+                this.setState({
+                    topic: '',
+                    description: '',
+                    open: true,
+                    showSuccess: true,  //show alertSuccess
+                })
+            })
+            .catch((error) => {
+                console.log('error in POST /api/reflections');
+            })
+        }
     }
+    
+//functions handling showing & hiding alerts
+  handleDismiss = () => {
+    this.setState({ showAlert: false, showSuccess: false });
+  }
+  handleShow = () => {
+    this.setState({ showAlert: !this.state.showAlert });
+  }
+
 
 
   render() {
+
+// This alert is triggered if the user doesn't enter info before submit
+    let alertCard;
+    if (this.state.showAlert) {
+    alertCard = (
+        <Alert bsStyle="warning" onDismiss={this.handleDismiss}>
+            <p><strong>Something's wrong...check your inputs</strong></p>
+        </Alert>
+    )}
+//This alert is triggered by a successful POST
+    else if (this.state.showSuccess) {
+        alertCard = (
+            <Alert bsStyle="success" onDismiss={this.handleDismiss}>
+                <p><strong>Reflection added</strong></p>
+            </Alert>
+        )}
+
+
+
+//RENDER RETURN        
     return (
-      <div className="container">
-        
+        <div>
+      <Panel className="addPanel">
+
+      {alertCard}
+
         <form onSubmit={this.postReflection}>
             <FormGroup controlId="formBasicText">
                 <FormControl
@@ -69,7 +117,14 @@ class AddForm extends Component {
             <Button type="submit">Submit</Button>
 
         </form>
-      </div>
+
+
+      </Panel>
+        </div>
+
+
+
+
     );
   }
 }

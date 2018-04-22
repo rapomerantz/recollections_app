@@ -9,7 +9,6 @@ class Add extends Component {
   render() {
     return (
       <div className="container">
-        <h1>ADD RECOLLECTIONS VIEW</h1>
 
         <AddForm />
         
