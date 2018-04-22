@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Add from '../Add/Add.js'
 import Reflections from '../Reflections/Reflections'
+import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap'
+
 
 // import Navbar from '../Nav/CustomNavbar.js'
 
@@ -11,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <header className="App-header">
           <h1 className="App-title">Oh, the places you've been</h1>
           <h4><i>Reflection Board</i></h4>

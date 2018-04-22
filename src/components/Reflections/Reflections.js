@@ -52,7 +52,6 @@ class Reflections extends Component {
   }
 
 
-
   componentDidMount() {
     this.getReflections();
   }
