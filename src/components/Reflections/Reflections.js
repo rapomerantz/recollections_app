@@ -75,10 +75,10 @@ class Reflections extends Component {
     let reflectionsArray = this.state.reflections.map((reflection) => {
       return(<Col xs={11} md={6}>
               <ReflectionsCard key={reflection.id}
-                                      reflection={reflection}
-                                      deleteReflection={this.deleteReflection}
-                                      updateBookmark={this.updateBookmark}
-                                      updateReflection={this.updateReflection}/>
+                                reflection={reflection}
+                                deleteReflection={this.deleteReflection}
+                                updateBookmark={this.updateBookmark}
+                                updateReflection={this.updateReflection}/>
             </Col>
             )
     })

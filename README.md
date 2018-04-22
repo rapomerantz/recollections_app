@@ -2,6 +2,9 @@
 
 It's a big world out there and it can be hard to keep track of important experiences. This application easily allows a user to store breif descriptions of their experiences and the lessons they gained from them. The user can view, bookmark, delete, and edit these reflections. 
 
+![view reflections](wireframes/screen1.png)
+![add new reflection](wireframes/screen2.png)
+
 
 ## This application is built with: 
 - React.js

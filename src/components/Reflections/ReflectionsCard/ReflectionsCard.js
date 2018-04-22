@@ -83,13 +83,11 @@ class ReflectionsCard extends Component {
       alertCard = (
         <Alert bsStyle="danger" onDismiss={this.handleDismiss} className="deleteAlert">
           <p>
-          <strong>Are you sure you want to delete this entry? </strong>
-          </p>
-          <ButtonGroup>
-            <Button onClick={this.handleDelete}>Delete</Button>
-            <Button onClick={this.handleDismiss}>Nevermind</Button>
+          <strong>Are you sure? </strong>
+          <ButtonGroup className="deleteAlertButtons">
+            <Button bsSize="small" onClick={this.handleDelete}>Delete</Button>
+            <Button bsSize="small" onClick={this.handleDismiss}>Nevermind</Button>
           </ButtonGroup>
-          <p>
           </p>
         </Alert>
       );
@@ -117,9 +115,10 @@ class ReflectionsCard extends Component {
               <Button className="cardButton" onClick={this.handleBookmark}><Glyphicon glyph="bookmark" /></Button>
               <Button className="cardButton" onClick={this.toggleEdit}><Glyphicon glyph="pencil" /></Button>
             </ButtonGroup>
-          </Panel.Body>
+            
             {/* Alert triggered on delete */}
             {alertCard}
+          </Panel.Body>
 
         </Panel>
       )}
@@ -185,9 +184,9 @@ class ReflectionsCard extends Component {
               <Button className="cardButton" onClick={this.toggleEdit}><Glyphicon glyph="pencil" /></Button>
             </ButtonGroup>
 
-          </Panel.Body>
             {/* Alert triggered on delete */}
             {alertCard} 
+          </Panel.Body>
 
         </Panel>
     )}

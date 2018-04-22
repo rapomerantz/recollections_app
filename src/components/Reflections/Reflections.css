@@ -11,8 +11,14 @@
 }
 
 .deleteAlert {
-    width: 80%; 
-    margin-left: 10%; 
+    width: 70%; 
+    /* float:right;  */
+    margin-top: 10px; 
+    margin-bottom: 5px; 
+}
+
+.deleteAlertButtons {
+    margin-left: 5px; 
 }
 
 .editForm {
