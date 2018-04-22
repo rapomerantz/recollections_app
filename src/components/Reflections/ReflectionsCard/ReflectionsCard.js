@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Reflections.css'
 // import Button from 'material-ui/Button'; 
-import { Panel, Button, Modal, Alert } from 'react-bootstrap';  
+import { Panel, Button, Modal, Alert, FormGroup, FormControl } from 'react-bootstrap';  
 import moment from 'moment'
 
 class ReflectionsCard extends Component {
@@ -9,8 +9,19 @@ class ReflectionsCard extends Component {
     super(props, context);
 
     this.state = {
-      showAlert: false
+      showAlert: false,
+      editMode: false,
+      editTopic: '',
+      editDate: '',
+      editDescription: '',
     };
+  }
+
+  toggleEdit = () => {
+    console.log('toggling edit mode');
+    this.setState({
+      editMode: !this.state.editMode
+    })    
   }
 
 
@@ -18,7 +29,6 @@ class ReflectionsCard extends Component {
   handleDismiss = () => {
     this.setState({ showAlert: false });
   }
-
   handleShow = () => {
     this.setState({ showAlert: !this.state.showAlert });
   }
@@ -29,11 +39,40 @@ class ReflectionsCard extends Component {
   handleDelete= () => {
     this.props.deleteReflection(this.props.reflection.id); 
   }
-
-
   handleBookmark = () => {
     this.props.updateBookmark(this.props.reflection.id);   
   }
+
+
+
+  handlePut = (event) => {
+    event.preventDefault(); 
+    let id = this.props.reflection.id;
+    let editTopic = this.state.editTopic;
+    let editDescription = this.state.editDescription;
+    console.log('put submit clicked');
+    this.props.updateReflection(id, editTopic, editDescription)
+    this.toggleEdit(); 
+
+  }
+
+  //change handlers for topic and description edits - could be shortened w/ a currying function later
+  handleTopicEdit = event => {
+    // console.log('event happended')
+    this.setState({
+        editTopic: event.target.value,
+    });
+    console.log(this.state.editTopic);
+  }
+  handleDescriptionEdit = event => {
+    // console.log('event happended')
+    this.setState({
+        editDescription: event.target.value,
+    });
+    console.log(this.state.editDescription);
+  }
+
+
 
   render() {
 
@@ -58,6 +97,8 @@ class ReflectionsCard extends Component {
 // I can probably think of a better way to toggle bookmarked class  
 
     let cardContent; 
+
+//BOOKMARKED
     if (this.props.reflection.bookmarked === true) {
       cardContent = (
         <Panel bsStyle="primary" className="recollectionCard">
@@ -69,15 +110,55 @@ class ReflectionsCard extends Component {
             <p>{this.props.reflection.description}</p>
             <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
+            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
           </Panel.Body>
             {/* Alert triggered on delete */}
             {alertCard}
 
         </Panel>
-      )
+      )}
 
+//EDIT MODE
+    else if (this.state.editMode === true) { 
+      cardContent = (
+        <Panel bsStyle="warning" className="recollectionCard">
+          <Panel.Heading>
+            <Panel.Title componentClass="h3">{this.props.reflection.topic}</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body> 
+            <p>{moment(this.props.reflection.date).format("MMMM Do YYYY")}</p> 
+            <p>{this.props.reflection.description}</p>
+            <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
+            <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
+            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
+          </Panel.Body>
+            {/* Alert triggered on delete */}
+            {alertCard} 
 
-    } else { 
+        <form onSubmit={this.handlePut}>
+            <FormGroup controlId="formBasicText">
+              {/* topic */}
+                <FormControl
+                    type="text"
+                    onChange={this.handleTopicEdit}
+                    placeholder={this.props.reflection.topic}
+                />
+                {/* description */}
+                <FormControl
+                    type="text"
+                    onChange={this.handleDescriptionEdit}
+                    placeholder={this.props.reflection.description}
+                />
+            </FormGroup>
+
+            <Button type="submit">Submit</Button>
+
+        </form>
+        </Panel>
+    )}
+
+//NORMAL
+    else { 
       cardContent = (
         <Panel className="recollectionCard">
           <Panel.Heading>
@@ -88,13 +169,15 @@ class ReflectionsCard extends Component {
             <p>{this.props.reflection.description}</p>
             <Button className="cardButton" onClick={this.handleShow}>Delete Recolletion</Button>
             <Button className="cardButton" onClick={this.handleBookmark}>Bookmark Recollection</Button>
+            <Button className="cardButton" onClick={this.toggleEdit}>Edit</Button>
+
           </Panel.Body>
             {/* Alert triggered on delete */}
             {alertCard} 
 
         </Panel>
-    )
-    }
+    )}
+
 
     return (
       <div className="">

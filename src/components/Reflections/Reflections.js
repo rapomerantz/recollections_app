@@ -40,7 +40,7 @@ class Reflections extends Component {
     
   }
 
-//axios PUT
+//axios PUT for bookmark
   updateBookmark = (id) => {
     axios.put('/api/reflections/' + id)
     .then((response) => {
@@ -49,6 +49,20 @@ class Reflections extends Component {
     .catch((error) => {
       console.log('error in PUT /api/reflections', error);
     })
+  }
+
+//axios PUT for reflection
+  updateReflection = (id, editTopic, editDescription) => {
+    console.log('reached updateReflection', id, editTopic, editDescription);
+    let editObject = {'editTopic': editTopic, 'editDescription': editDescription}
+    axios.put('/api/reflections/edit/' + id, editObject)
+    .then((response) => {
+      this.getReflections(); 
+    })
+    .catch((error) => {
+      console.log('error in PUT /api/reflections', error);
+    })
+
   }
 
 
@@ -62,7 +76,8 @@ class Reflections extends Component {
       return <ReflectionsCard key={reflection.id}
                               reflection={reflection}
                               deleteReflection={this.deleteReflection}
-                              updateBookmark={this.updateBookmark}/>
+                              updateBookmark={this.updateBookmark}
+                              updateReflection={this.updateReflection}/>
     })
 
 
