@@ -13,6 +13,8 @@ class ReflectionsCard extends Component {
     };
   }
 
+
+//functions handling showing & hiding the delete alert
   handleDismiss = () => {
     this.setState({ showAlert: false });
   }
