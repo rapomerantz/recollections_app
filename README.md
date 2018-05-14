@@ -1,6 +1,6 @@
 # Reflections App
 
-It's a big world out there and it can be hard to keep track of important experiences. This application easily allows a user to store breif descriptions of their experiences and the lessons they gained from them. The user can view, bookmark, delete, and edit these reflections. 
+A modest two-page application that allows the user to create, edit, bookmark and delete lessons learned. My very first app built in React.js! 
 
 ![view reflections](wireframes/screen1.png)
 
@@ -27,8 +27,7 @@ PostgreSQL:
 
 CREATE DATABASE "reflection_board";
 
--- Switch to "reflection_board" before running the following
--- Table to store the reflections
+```
 CREATE TABLE "reflection" (
   "id" serial primary key,
   "topic" varchar(120),
@@ -43,6 +42,6 @@ VALUES ('What went well?', 'Gave an ice breaker at public speaking practice.'),
 ('Better next time?', 'Get more sleep.'),
 ('What went well?', 'Built a full stack web application!'),
 ('Better next time?', 'Use trello to manage tasks.');
-
+```
 
 ### Handcrafted by R. Atticus Pomerantz
